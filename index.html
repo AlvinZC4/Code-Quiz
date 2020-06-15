@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Code Quiz</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+    </nav>
+
+    <section class="container mt-5 d-block intro">
+        <div class="row">
+            <header class="col-md-12 d-flex justify-content-center">
+                JavaScript Coding Quiz!
+            </header>
+        </div>
+        <div class="row mt-4">
+            <section class="col-md-12 mx-2 d-flex justify-content-center">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos debitis temporibus eos molestias
+                doloremque itaque quisquam corporis ullam sequi? Magnam, sint? Obcaecati ullam cupiditate, veritatis
+                quod et magnam consequuntur voluptate quidem aliquam accusantium, omnis fugiat enim voluptas totam nisi
+                ipsa reiciendis, numquam autem tempore. Assumenda qui porro amet commodi ad.</p>
+            </section>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-lg" id="startQuiz">Start Quiz</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5 questionOne d-none">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                This is the first question?
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer1 wrong">Answer 1</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer1 correct">Answer 2</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer1 wrong">Answer 3</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer1 wrong">Answer 4</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5 questionTwo d-none">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                This is the second question?
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer2 correct">Answer 1</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer2 wrong">Answer 2</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer2 wrong">Answer 3</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer2 wrong">Answer 4</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5 questionThree d-none">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                This is the first question?
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer3 wrong">Answer 1</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer3 wrong">Answer 2</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer3 wrong">Answer 3</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer3 correct">Answer 4</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5 questionFour d-none">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                This is the first question?
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer4 correct">Answer 1</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer4 wrong">Answer 2</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer4 wrong">Answer 3</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer4 wrong">Answer 4</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mt-5 questionFive d-none">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                This is the first question?
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer5 wrong">Answer 1</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer5 wrong">Answer 2</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer5 wrong">Answer 3</button>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg answer5 correct">Answer 4</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container alldone d-none">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <h2>All Done!!</h2>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <p>Your final score is: <span id="finalscore"></span></p>
+            </div>
+        </div>
+        <form class="row">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <p>Enter Your Intials</p>
+                <input class="form-control" type="text" placeholder="Default input">
+                <button type="button" class="btn btn-primary btn-lg" id="submitscore">Submit</button>
+            </div>    
+        </form>
+    </section>
+
+    <footer class="container">
+        <div class="row mt-2 anschk d-none">
+            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+                <hr>
+                <span class="rightwrong" id="check1"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
