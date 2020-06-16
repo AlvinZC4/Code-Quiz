@@ -13,10 +13,11 @@
 
 <body>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="nav-link d-flex flex-row" href="#">View Highscores</a>
+        <div class="d-flex flex-row-reverse" id="timeleft"></div>
     </nav>
 
-    <section class="container mt-5 d-block intro">
+    <section class="container mt-5 intro" id="intro">
         <div class="row">
             <header class="col-md-12 d-flex justify-content-center">
                 JavaScript Coding Quiz!
@@ -37,10 +38,10 @@
         </div>
     </section>
 
-    <section class="container mt-5 questionOne d-none">
+    <section class="container mt-5 questionOne " id="questone">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
-                This is the first question?
+                <h2>This is the first question?</h2>
             </div>
         </div>
         <div class="row mt-3">
@@ -65,10 +66,10 @@
         </div>
     </section>
 
-    <section class="container mt-5 questionTwo d-none">
+    <section class="container mt-5 questionTwo" id="questtwo">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
-                This is the second question?
+                <h2>This is the second question?</h2>
             </div>
         </div>
         <div class="row mt-3">
@@ -93,10 +94,10 @@
         </div>
     </section>
 
-    <section class="container mt-5 questionThree d-none">
+    <section class="container mt-5 questionThree" id="questthree">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
-                This is the first question?
+                <h2>This is the third question?</h2>>
             </div>
         </div>
         <div class="row mt-3">
@@ -121,10 +122,10 @@
         </div>
     </section>
 
-    <section class="container mt-5 questionFour d-none">
+    <section class="container mt-5 questionFour" id="questfour">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
-                This is the first question?
+                <h2>This is the forth question?</h2>
             </div>
         </div>
         <div class="row mt-3">
@@ -149,10 +150,10 @@
         </div>
     </section>
 
-    <section class="container mt-5 questionFive d-none">
+    <section class="container mt-5 questionFive" id="questfive">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
-                This is the first question?
+                <h2>This is the fifth question?</h2>>
             </div>
         </div>
         <div class="row mt-3">
@@ -177,28 +178,53 @@
         </div>
     </section>
 
-    <section class="container alldone d-none">
+    <section class="container mt-5 alldone" id="alldone">
         <div class="row">
-            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+            <div class="col-md-12 d-flex justify-content-center">
                 <h2>All Done!!</h2>
             </div>
         </div>    
         <div class="row">
-            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+            <div class="col-md-12 d-flex justify-content-center">
                 <p>Your final score is: <span id="finalscore"></span></p>
             </div>
         </div>
         <form class="row">
-            <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
+            <div class="col-md-4 d-flex justify-content-center justify-content-md-end">
                 <p>Enter Your Intials</p>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center justify-content-md-start">
                 <input class="form-control" type="text" placeholder="Default input">
-                <button type="button" class="btn btn-primary btn-lg" id="submitscore">Submit</button>
-            </div>    
+            </div>
+            <div class="col-md-2 d-flex pt-2 pt-md-0 justify-content-center justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-sm" id="submitscore">Submit</button>
+            </div>
         </form>
     </section>
 
+    <section class="container mt-5 highscores" id="highscores">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <h2>Highscores</h2>
+            </div>
+        </div>
+        <div class="row">
+            <ul class="col-12 d-flex mt-2 justify-content-center">
+
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-6 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-sm">Go Back</button>
+            </div>
+            <div class="col-6 d-flex justify-content-center">
+                <button type="button" class="btn btn-primary btn-sm">Clear Highscores</button>
+            </div>
+        </div>
+    </section>
+
     <footer class="container">
-        <div class="row mt-2 anschk d-none">
+        <div class="row mt-2 anschk" id="anschk">
             <div class="col-md-12 d-flex justify-content-center justify-content-md-start">
                 <hr>
                 <span class="rightwrong" id="check1"></span>

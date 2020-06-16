@@ -1,7 +1,35 @@
-.show {
-    display: initial;
+#intro {
+    display: block;
 }
 
-.hide {
+#questone {
+    display: none;
+}
+
+#questtwo {
+    display: none;
+}
+
+#questthree {
+    display: none;
+}
+
+#questfour {
+    display: none;
+}
+
+#questfive {
+    display: none;
+}
+
+#alldone {
+    display: none;
+}
+
+#highscores {
+    display: none;
+}
+
+#anschk {
     display: none;
 }
