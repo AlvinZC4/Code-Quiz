@@ -24,8 +24,10 @@ var answerTwo = document.querySelectorAll(".answer2");
 var answerThree = document.querySelectorAll(".answer3");
 var answerFour = document.querySelectorAll(".answer4");
 var answerFive = document.querySelectorAll(".answer5");
-var initalsEntered = [];
+var initalsEntered = []
 var allScores = [];
+var initialsStored = JSON.parse(localStorage.getItem("initals"));
+var scoresStored = JSON.parse(localStorage.getItem("score"));
 var onQuestOne = false;
 var onQuestTwo = false;
 var onQuestThree = false;
@@ -36,6 +38,7 @@ var onHighScore = false;
 var timer = 75;
 var showFor = 0
 var yourFinalScore = 0
+
 
 // Function to reset the quiz
 function clearQuiz() {
@@ -245,9 +248,9 @@ viewScores.addEventListener("click", function () {
 
 clearScores.addEventListener("click", function () {
     localStorage.clear()
-    scoreList.removeChild(li)
     initalsEntered = []
     allScores = []
+    renderHighScores()
 
 })
 
