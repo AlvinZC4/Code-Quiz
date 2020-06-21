@@ -31,11 +31,27 @@ var onQuestTwo = false;
 var onQuestThree = false;
 var onQuestFour = false;
 var onQuestFive = false;
-var TestComplete = false;
+var TestComplete = true;
+var onHighScore = false;
 var timer = 75;
 var showFor = 0
 var yourFinalScore = 0
 
+// Function to reset the quiz
+function clearQuiz() {
+    onQuestOne = false
+    onQuestTwo = false
+    onQuestThree = false
+    onQuestFour = false
+    onQuestFive = false
+    TestComplete = true
+    onHighScore = false
+    timer = 75
+    console.log(timer)
+    yourFinalScore = 0
+      
+}
+// function to create event listeners for answer buttons
 function addListernContain (button, container) {
     for (i = 0; i < button.length; i++) {
         button[i].addEventListener("click", container);
@@ -113,9 +129,6 @@ function quizOver() {
     questFour.setAttribute("style", "display:none;");
     questFive.setAttribute("style", "display:none;");
     allDone.setAttribute("style", "display:block;");
-    finalScore = yourFinalScore
-    var thisUsersScore = yourFinalScore
-    allScores.push(thisUsersScore)
 }
 
 // Show time left for quiz (shows 0 seconds before start of quiz)
@@ -150,11 +163,37 @@ function runQuiz() {
             yourFinalScore = timer
             quizOver();
         }
+
+        if (onHighScore === true) {
+            clearInterval(timeInterval)
+        }
     }, 1000)
 }
 
+function renderHighScores () {
+    scoreList.innerHTML = "";
+
+    var userScores = JSON.parse(localStorage.getItem("score"))
+    var userInitals = JSON.parse(localStorage.getItem("initals"))
+
+    for (var l = 0; l < allScores.length; l++) {
+        var listNum = l + 1
+        userScores = allScores[l]
+        userInitals = initalsEntered[l]
+        console.log(userScores)
+        console.log(userInitals)
+        var li = document.createElement("li")
+        li.setAttribute("class", "d-flex mx-auto")
+        li.textContent = listNum + " - " + userInitals + " - " + userScores
+        scoreList.appendChild(li)
+    }
+}
+
+
 // Function to add users score to high score list
 function addHighScore() {
+    finalScore = yourFinalScore
+    var thisUsersScore = yourFinalScore
     var initalValidation = document.querySelector("#yourinitals").value
     // Check that a valid entry was made for users initals
     if (initalValidation === "" || initalValidation.length > 3) {
@@ -162,12 +201,16 @@ function addHighScore() {
     }
     else {
         var thisUsersInitals = document.querySelector("#yourinitals").value
+        initalsEntered.push(thisUsersInitals)
+        allScores.push(thisUsersScore)
         localStorage.setItem("initals", JSON.stringify(initalsEntered))
         localStorage.setItem("score", JSON.stringify(allScores))
         allDone.setAttribute("style", "display:none;")
         highScores.setAttribute("style", "display:block;")
+        onHighScore = true;
+        renderHighScores()
     }
-    initalsEntered.push(thisUsersInitals)
+
 
     console.log(initalsEntered)
     console.log(allScores)
@@ -175,6 +218,38 @@ function addHighScore() {
 
 startQuiz.addEventListener("click", runQuiz);
 submitScore.addEventListener("click", addHighScore);
+
+goBack.addEventListener("click", function() {
+    clearQuiz()
+    intro.setAttribute("style", "display:block;");
+    questOne.setAttribute("style", "display:none;");
+    questTwo.setAttribute("style", "display:none;");
+    questThree.setAttribute("style", "display:none;");
+    questFour.setAttribute("style", "display:none;");
+    questFive.setAttribute("style", "display:none;");
+    allDone.setAttribute("style", "display:none;");
+    highScores.setAttribute("style", "display:none")
+})
+
+viewScores.addEventListener("click", function () {
+    onHighScore = true;
+    intro.setAttribute("style", "display:none;");
+    questOne.setAttribute("style", "display:none;");
+    questTwo.setAttribute("style", "display:none;");
+    questThree.setAttribute("style", "display:none;");
+    questFour.setAttribute("style", "display:none;");
+    questFive.setAttribute("style", "display:none;");
+    allDone.setAttribute("style", "display:none;");
+    highScores.setAttribute("style", "display:block;")
+})
+
+clearScores.addEventListener("click", function () {
+    localStorage.clear()
+    scoreList.removeChild(li)
+    initalsEntered = []
+    allScores = []
+
+})
 
 addListernContain(answerOne, oneToTwo);
 addListernContain(answerTwo, twoToThree);

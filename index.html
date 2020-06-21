@@ -13,7 +13,7 @@
 
 <body>
     <nav class="navbar navbar-light bg-light">
-        <div class="d-flex flex-row viewscores">View Highscores</div>
+        <div class="d-flex flex-row" id="viewscores">View Highscores</div>
         <div class="d-flex flex-row-reverse" id="timeleft"></div>
     </nav>
 
@@ -209,9 +209,7 @@
             </div>
         </div>
         <div class="row">
-            <ul class="col-12 d-flex mt-2 justify-content-center" id="scorelist">
-
-            </ul>
+            <ul class="col-12 d-flex flex-column mt-2 text-center justify-content-center" id="scorelist"></ul>
         </div>
         <div class="row">
             <div class="col-6 d-flex justify-content-center">
