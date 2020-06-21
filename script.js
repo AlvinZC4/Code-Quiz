@@ -6,10 +6,13 @@ var questThree = document.querySelector("#questthree");
 var questFour = document.querySelector("#questfour");
 var questFive = document.querySelector("#questfive");
 var allDone = document.querySelector("#alldone");
+var finalScore = document.querySelector("#finalscore");
+var yourInitals = document.querySelector("#yourinitals");
 var highScores = document.querySelector("#highscores");
 var ansChk = document.querySelector("#anschk");
 var viewScores = document.querySelector("#viewscores");
 var startQuiz = document.querySelector("#startquiz");
+var scoreList = document.querySelector("#scorelist");
 var submitScore = document.querySelector("#submitscore");
 var goBack = document.querySelector("#goback");
 var clearScores = document.querySelector("#clearscores");
@@ -21,21 +24,17 @@ var answerTwo = document.querySelectorAll(".answer2");
 var answerThree = document.querySelectorAll(".answer3");
 var answerFour = document.querySelectorAll(".answer4");
 var answerFive = document.querySelectorAll(".answer5");
+var initalsEntered = [];
+var allScores = [];
 var onQuestOne = false;
 var onQuestTwo = false;
 var onQuestThree = false;
 var onQuestFour = false;
 var onQuestFive = false;
 var TestComplete = false;
+var timer = 75;
 var showFor = 0
-
-// console.log(answerOne);
-// console.log(answerTwo);
-// console.log(answerThree);
-// console.log(answerFour);
-// console.log(answerFive);
-// console.log(correct);
-// console.log(wrong);
+var yourFinalScore = 0
 
 function addListernContain (button, container) {
     for (i = 0; i < button.length; i++) {
@@ -50,7 +49,6 @@ function chkCorrect() {
     var ansIs = "Correct!!"
     ansChk.textContent = ansIs
     ansChk.setAttribute("style", "display:block;")
-    console.log(ansIs)
 
     var checkInterval = setInterval(function() {
         showFor--;
@@ -71,7 +69,6 @@ function chkWrong() {
     ansChk.textContent = ansIs
     ansChk.setAttribute("style", "display:block;")
     timer += -20
-    console.log(ansIs)
 
     var checkInterval = setInterval(function() {
         showFor--;
@@ -106,7 +103,6 @@ function fourToFive () {
 
 function fiveComplete() {
     questFive.setAttribute("style", "display:none;");
-    allDone.setAttribute("style", "display:block;");
     TestComplete = true;
 }
 
@@ -117,10 +113,12 @@ function quizOver() {
     questFour.setAttribute("style", "display:none;");
     questFive.setAttribute("style", "display:none;");
     allDone.setAttribute("style", "display:block;");
+    finalScore = yourFinalScore
+    var thisUsersScore = yourFinalScore
+    allScores.push(thisUsersScore)
 }
 
 // Show time left for quiz (shows 0 seconds before start of quiz)
-var timer = 75;
 timeLeft.append("Time left: " + timer)
 
 // Function to run the quiz
@@ -141,19 +139,42 @@ function runQuiz() {
         // Show Time Counting Down
         timeLeft.textContent = "Time left: " + timer;
 
-        // Stop countdown when timer reaches 0.  Show Final Score
-        if (timer === 0) {
+        // Stop countdown when timer reaches 0 (or below).  Show Final Score
+        if (timer <= 0) {
             quizOver();
             clearInterval(timeInterval);
         }
 
         if (TestComplete === true) {
-            clearInterval(timeInterval);
+            clearInterval(timeInterval)
+            yourFinalScore = timer
+            quizOver();
         }
     }, 1000)
 }
 
+// Function to add users score to high score list
+function addHighScore() {
+    var initalValidation = document.querySelector("#yourinitals").value
+    // Check that a valid entry was made for users initals
+    if (initalValidation === "" || initalValidation.length > 3) {
+        alert("Please enter your initals with no more than three characters")
+    }
+    else {
+        var thisUsersInitals = document.querySelector("#yourinitals").value
+        localStorage.setItem("initals", JSON.stringify(initalsEntered))
+        localStorage.setItem("score", JSON.stringify(allScores))
+        allDone.setAttribute("style", "display:none;")
+        highScores.setAttribute("style", "display:block;")
+    }
+    initalsEntered.push(thisUsersInitals)
+
+    console.log(initalsEntered)
+    console.log(allScores)
+}
+
 startQuiz.addEventListener("click", runQuiz);
+submitScore.addEventListener("click", addHighScore);
 
 addListernContain(answerOne, oneToTwo);
 addListernContain(answerTwo, twoToThree);
